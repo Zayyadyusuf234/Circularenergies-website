@@ -1089,43 +1089,47 @@ footer {
       <p style="font-size:13px;color:var(--faint);">12 pages · PDF · Free · No spam</p>
     </div>
     <div class="lm-right r d1">
-      <div class="lm-form-title">◈ Send Me the Free Report</div>
-      <div class="lm-field">
-        <label>Full Name</label>
-        <input type="text" placeholder="e.g. Musa Ibrahim"/>
-      </div>
-      <div class="lm-field">
-        <label>Work Email Address</label>
-        <input type="email" placeholder="musa@company.com"/>
-      </div>
-      <div class="lm-field">
-        <label>Your Industry</label>
-        <select>
-          <option value="">Select your industry...</option>
-          <option>Logistics &amp; Transport (Fleet Operator)</option>
-          <option>Agribusiness &amp; Food Processing</option>
-          <option>Manufacturing &amp; Industrial</option>
-          <option>Hospitality (Hotel / Hospital)</option>
-          <option>Energy Distribution / Downstream</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="lm-field">
-        <label>Which energy challenge concerns you most?</label>
-        <select>
-          <option value="">Select a challenge...</option>
-          <option>Rising diesel / petrol costs</option>
-          <option>Generator fuel spend</option>
-          <option>Fleet fuel costs</option>
-          <option>Exploring cleaner fuel options</option>
-          <option>Securing DFI / bank financing for transition</option>
-        </select>
-      </div>
-      <button class="lm-submit" onclick="handleLMSubmit(this)">
-        <span>Send Me the Free Report</span>
-        <span>→</span>
-      </button>
-      <p class="lm-disclaimer">By submitting you agree to receive occasional advisory insights from CircularEnergies. Unsubscribe anytime. We never share your data.</p>
+      <form name="free-report" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleLMSubmit(event)">
+        <input type="hidden" name="form-name" value="free-report"/>
+        <p style="display:none;"><input name="bot-field"/></p>
+        <div class="lm-form-title">◈ Send Me the Free Report</div>
+        <div class="lm-field">
+          <label>Full Name</label>
+          <input type="text" name="name" placeholder="e.g. Musa Ibrahim" required/>
+        </div>
+        <div class="lm-field">
+          <label>Work Email Address</label>
+          <input type="email" name="email" placeholder="musa@company.com" required/>
+        </div>
+        <div class="lm-field">
+          <label>Your Industry</label>
+          <select name="industry" required>
+            <option value="">Select your industry...</option>
+            <option>Logistics &amp; Transport (Fleet Operator)</option>
+            <option>Agribusiness &amp; Food Processing</option>
+            <option>Manufacturing &amp; Industrial</option>
+            <option>Hospitality (Hotel / Hospital)</option>
+            <option>Energy Distribution / Downstream</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="lm-field">
+          <label>Which energy challenge concerns you most?</label>
+          <select name="energy-challenge" required>
+            <option value="">Select a challenge...</option>
+            <option>Rising diesel / petrol costs</option>
+            <option>Generator fuel spend</option>
+            <option>Fleet fuel costs</option>
+            <option>Exploring cleaner fuel options</option>
+            <option>Securing DFI / bank financing for transition</option>
+          </select>
+        </div>
+        <button type="submit" class="lm-submit">
+          <span>Send Me the Free Report</span>
+          <span>→</span>
+        </button>
+        <p class="lm-disclaimer">By submitting you agree to receive occasional advisory insights from CircularEnergies. Unsubscribe anytime. We never share your data.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -1456,45 +1460,49 @@ footer {
         <p class="eq-note" style="margin-top:16px;">Or fill the form — we'll get back to you with an honest assessment and a no-obligation proposal.</p>
       </div>
       <div class="eq-form r d1">
-        <div class="eq-form-title">◈ Send an Enquiry</div>
-        <div class="eq-row">
-          <div class="eq-field">
-            <label>Your Name</label>
-            <input type="text" placeholder="Aminu Bello"/>
+        <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleEnquiry(event)">
+          <input type="hidden" name="form-name" value="enquiry"/>
+          <p style="display:none;"><input name="bot-field"/></p>
+          <div class="eq-form-title">◈ Send an Enquiry</div>
+          <div class="eq-row">
+            <div class="eq-field">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="Aminu Bello" required/>
+            </div>
+            <div class="eq-field">
+              <label>Company / Organisation</label>
+              <input type="text" name="company" placeholder="Bello Energy Ltd"/>
+            </div>
           </div>
           <div class="eq-field">
-            <label>Company / Organisation</label>
-            <input type="text" placeholder="Bello Energy Ltd"/>
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="aminu@company.com" required/>
           </div>
-        </div>
-        <div class="eq-field">
-          <label>Email Address</label>
-          <input type="email" placeholder="aminu@company.com"/>
-        </div>
-        <div class="eq-field">
-          <label>Phone / WhatsApp</label>
-          <input type="tel" placeholder="+234 800 000 0000"/>
-        </div>
-        <div class="eq-field">
-          <label>Which study are you interested in?</label>
-          <select>
-            <option value="">Select a study...</option>
-            <option>CNG Fleet &amp; Infrastructure</option>
-            <option>Solar + Storage for Industry</option>
-            <option>Biogas / CBG from Agri-Waste</option>
-            <option>LPG Supply Chain</option>
-            <option>Sustainable Aviation Fuel (SAF)</option>
-            <option>Green Hydrogen Positioning</option>
-            <option>Not sure — need guidance</option>
-          </select>
-        </div>
-        <div class="eq-field">
-          <label>Briefly describe your situation</label>
-          <textarea placeholder="e.g. We run a 40-truck logistics fleet in Kano and spend ₦8M/month on diesel. We want to know if CNG conversion makes financial sense for us..."></textarea>
-        </div>
-        <button class="eq-submit" onclick="handleEnquiry(this)">
-          <span>Send Enquiry</span><span>→</span>
-        </button>
+          <div class="eq-field">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" name="phone" placeholder="+234 800 000 0000"/>
+          </div>
+          <div class="eq-field">
+            <label>Which study are you interested in?</label>
+            <select name="study">
+              <option value="">Select a study...</option>
+              <option>CNG Fleet &amp; Infrastructure</option>
+              <option>Solar + Storage for Industry</option>
+              <option>Biogas / CBG from Agri-Waste</option>
+              <option>LPG Supply Chain</option>
+              <option>Sustainable Aviation Fuel (SAF)</option>
+              <option>Green Hydrogen Positioning</option>
+              <option>Not sure — need guidance</option>
+            </select>
+          </div>
+          <div class="eq-field">
+            <label>Briefly describe your situation</label>
+            <textarea name="message" placeholder="e.g. We run a 40-truck logistics fleet in Kano and spend ₦8M/month on diesel. We want to know if CNG conversion makes financial sense for us..."></textarea>
+          </div>
+          <button type="submit" class="eq-submit">
+            <span>Send Enquiry</span><span>→</span>
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -1590,19 +1598,44 @@ document.querySelectorAll('.why-right').forEach(el => {
 });
 
 // ── Lead magnet form ──
-function handleLMSubmit(btn) {
-  btn.innerHTML = '✓ Report on its way — check your inbox!';
+function handleLMSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.lm-submit');
+  btn.innerHTML = '&#10003; Report on its way &mdash; check your inbox!';
   btn.style.background = 'var(--grn)';
   btn.style.color = '#fff';
   btn.disabled = true;
+  // Submit to Netlify
+  fetch('/', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams(new FormData(form)).toString()
+  }).catch(() => {});
+  // Trigger PDF download
+  setTimeout(() => {
+    const a = document.createElement('a');
+    a.href = 'https://raw.githubusercontent.com/zayyadyusuf234/circularenergies-website/main/nigeria_energy_brief_2025.pdf';
+    a.download = 'Nigeria_Energy_Transition_Brief_2025_CircularEnergies.pdf';
+    a.click();
+  }, 800);
 }
 
 // ── Enquiry form ──
-function handleEnquiry(btn) {
-  btn.innerHTML = '<span>&#10003; Enquiry received &#8212; we will respond within 24 hours</span>';
+function handleEnquiry(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.eq-submit');
+  btn.innerHTML = '<span>&#10003; Enquiry received &mdash; we will respond within 24 hours</span>';
   btn.style.background = 'var(--grn)';
   btn.style.color = '#fff';
   btn.disabled = true;
+  // Submit to Netlify
+  fetch('/', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams(new FormData(form)).toString()
+  }).catch(() => {});
 }
 </script>
 </body>
